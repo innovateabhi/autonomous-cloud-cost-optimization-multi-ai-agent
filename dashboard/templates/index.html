@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Autonomous Cloud Cost Optimization
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/style.css'
+        ) }}"
+    >
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                AI
+            </div>
+
+            <div>
+                <h1>CloudOpt AI</h1>
+                <span>Autonomous Cost Intelligence</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a
+                href="#overview"
+                class="active"
+            >
+                <span>◉</span>
+                Overview
+            </a>
+
+            <a href="#resources">
+                <span>▣</span>
+                Resources
+            </a>
+
+            <a href="#recommendations">
+                <span>◆</span>
+                Recommendations
+            </a>
+
+            <a href="#audit">
+                <span>◈</span>
+                Audit Logs
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span
+                    id="systemDot"
+                    class="status-dot"
+                ></span>
+
+                <div>
+
+                    <strong>
+                        System Status
+                    </strong>
+
+                    <small id="systemStatus">
+                        Checking...
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    CLOUD INTELLIGENCE PLATFORM
+                </p>
+
+                <h2>
+                    Cost Optimization Dashboard
+                </h2>
+
+                <p class="subtitle">
+                    AI-assisted analysis of AWS resources,
+                    utilization, cost and optimization risk.
+                </p>
+
+            </div>
+
+
+            <div class="analysis-controls">
+
+    <button
+        id="runAnalysis"
+        class="primary-button"
+    >
+        <span>▶</span>
+        Run Analysis
+    </button>
+
+    <button
+        id="refreshDashboard"
+        class="secondary-button"
+    >
+        ↻ Refresh Dashboard
+    </button>
+
+</div>
+<div
+    id="analysisStatus"
+    class="analysis-status"
+>
+    Ready to analyze cloud resources.
+</div>
+
+        </header>
+
+
+        <!-- KPI CARDS -->
+
+        <section
+            id="overview"
+            class="stats-grid"
+        >
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    TOTAL RESOURCES
+                </div>
+
+                <div
+                    id="resourceCount"
+                    class="stat-value"
+                >
+                    —
+                </div>
+
+                <div
+                    id="resourceMeta"
+                    class="stat-meta"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    POTENTIAL SAVINGS
+                </div>
+
+                <div
+                    id="savings"
+                    class="stat-value"
+                >
+                    $0.00
+                </div>
+
+                <div class="stat-meta">
+                    From current recommendations
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    REVIEW REQUIRED
+                </div>
+
+                <div
+                    id="reviewCount"
+                    class="stat-value"
+                >
+                    0
+                </div>
+
+                <div class="stat-meta">
+                    Human review decisions
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    LLM SUCCESS
+                </div>
+
+                <div
+                    id="llmSuccess"
+                    class="stat-value"
+                >
+                    0%
+                </div>
+
+                <div class="stat-meta">
+                    Ollama recommendation generation
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ARCHITECTURE -->
+
+        <section class="panel architecture-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="section-kicker">
+                        PIPELINE
+                    </span>
+
+                    <h3>
+                        Intelligent Decision Pipeline
+                    </h3>
+
+                </div>
+
+                <span class="live-badge">
+                    ● LIVE
+                </span>
+
+            </div>
+
+
+            <div class="pipeline">
+
+                <div class="pipeline-step">
+                    <strong>AWS</strong>
+                    <span>Resources</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-step">
+                    <strong>Metrics</strong>
+                    <span>CloudWatch</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-step">
+                    <strong>Analysis</strong>
+                    <span>Utilization</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-step">
+                    <strong>Agents</strong>
+                    <span>Optimization + Risk</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-step">
+                    <strong>Qwen</strong>
+                    <span>Ollama LLM</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-step">
+                    <strong>Audit</strong>
+                    <span>PostgreSQL</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESOURCE TABLE -->
+
+        <section
+            id="resources"
+            class="panel"
+        >
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="section-kicker">
+                        INFRASTRUCTURE
+                    </span>
+
+                    <h3>
+                        AWS Resources
+                    </h3>
+
+                </div>
+
+                <span
+                    id="lastUpdated"
+                    class="last-updated"
+                >
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>RESOURCE</th>
+                            <th>TYPE</th>
+                            <th>REGION</th>
+                            <th>STATE</th>
+                            <th>CPU</th>
+                            <th>COST</th>
+                            <th>RECOMMENDATION</th>
+                            <th>RISK</th>
+                            <th>DECISION</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="resourceTable"
+                    >
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- TWO COLUMNS -->
+
+        <section class="two-column">
+
+
+            <!-- RECOMMENDATIONS -->
+
+            <div
+                id="recommendations"
+                class="panel"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            AI DECISIONS
+                        </span>
+
+                        <h3>
+                            Recommendations
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="recommendationList"
+                    class="recommendation-list"
+                >
+                </div>
+
+            </div>
+
+
+            <!-- AI INSIGHT -->
+
+            <div class="panel ai-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            LOCAL AI
+                        </span>
+
+                        <h3>
+                            Ollama Intelligence
+                        </h3>
+
+                    </div>
+
+                    <span class="ai-model">
+                        Qwen3 · 1.7B
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="aiInsight"
+                    class="ai-content"
+                >
+
+                    Loading AI audit information...
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AUDIT -->
+
+        <section
+            id="audit"
+            class="panel"
+        >
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="section-kicker">
+                        GOVERNANCE
+                    </span>
+
+                    <h3>
+                        Audit Trail
+                    </h3>
+
+                </div>
+
+                <span class="audit-label">
+                    PostgreSQL
+                </span>
+
+            </div>
+
+
+            <div
+                id="auditTimeline"
+                class="audit-timeline"
+            >
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            Autonomous Cloud Cost Optimization
+
+            <span>•</span>
+
+            Minor Project
+
+            <span>•</span>
+
+            AWS + Multi-Agent AI + Ollama
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast"
+>
+    Analysis started...
+</div>
+
+
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/dashboard.js'
+    ) }}"
+></script>
+
+</body>
+
+</html>
